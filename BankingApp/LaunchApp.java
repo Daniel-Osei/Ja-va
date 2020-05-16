@@ -1,10 +1,10 @@
 // import Scanner util
-
 import java.util.Scanner;
 
 // main class to launch the app
 public class LaunchApp {
     public static void main (String[] args) {
+        
         MainAccount user1 = new MainAccount("James Amo", "00001");
         user1.displayMenu();
     }
@@ -19,7 +19,7 @@ class MainAccount {
 
     String firstName;
     String lastName;
-    String customerName = firstName + " " + lastName;
+    String customerName;
 
     String customerId;
     String pinCode;
@@ -34,6 +34,7 @@ class MainAccount {
     // Methods
     void displayMenu() {
         char choice = '\0';
+        // create the scanner
         Scanner get = new Scanner(System.in);
 
         System.out.println("Welcome " + customerName);
@@ -96,9 +97,10 @@ class MainAccount {
             }
         }while (choice != 'E');
 
+        // close the scanner
+        get.close();
+
         System.out.println("Thanks for using the service");
-
-
     }
 
     void deposit(int amount) {
